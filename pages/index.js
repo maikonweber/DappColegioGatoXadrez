@@ -54,15 +54,18 @@ const [loadingState, setLoadingState] = useState('no-loaded');
     
 
     async function buyNFT(nft) {
-        
+        console.log('buyNFT', nft);
         let web3Modal = new Web3Modal();
         let connection = await web3Modal.connect();
         let provider = new ethers.providers.Web3Provider(connection);
         const signer = provider.getSigner();
         const contract = new ethers.Contract(nftmarketaddres, Market.abi , signer);
+        console.log(nft.price)
         const price = ethers.utils.parseUnits(nft.price.toString(), 'ether');
-        console.log(price);
+
+        
         let transaction = await contract.createMarketSale(nftaddress, nft.tokenId, { value : price});
+        console.log(transaction);
         await transaction.wait();
         loadNfts();
     }
@@ -70,7 +73,7 @@ const [loadingState, setLoadingState] = useState('no-loaded');
 
     useEffect(() => {
         loadNfts();
-        
+        console.log(nfts);
     }, []);
 
     
@@ -101,8 +104,6 @@ const [loadingState, setLoadingState] = useState('no-loaded');
                 borderRadius='lg'
                 boxShadow='lg'
                 p={5}
-                key={i}
-
             >
             <Box
             key={nft.tokenId}
