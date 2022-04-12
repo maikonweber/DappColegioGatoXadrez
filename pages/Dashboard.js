@@ -16,8 +16,8 @@ function Dashboard() {
   const [loadingState, setLoadingState] = useState('not-loaded')
   useEffect(() => {
     loadNFTs()
-    console.log(nfts)
-  }, [])
+
+  })
   async function loadNFTs() {
     const web3Modal = new Web3Modal(
     //     {

@@ -69,7 +69,7 @@ const [loadingState, setLoadingState] = useState('no-loaded');
     useEffect(() => {
         loadNfts();
         
-    }, [])
+    })
 
     
 
@@ -93,12 +93,14 @@ const [loadingState, setLoadingState] = useState('no-loaded');
             templeteRow={['1fr', '1fr', '1fr', '1fr', '1fr']}
             gap={['1rem', '1rem', '1rem', '1rem', '1rem']}
         >
-        {nfts.map(nft => (
+        {nfts.map((nft, i) => (
             <Box 
                 bg='red.200'
                 borderRadius='lg'
                 boxShadow='lg'
                 p={5}
+                key={i}
+                
             >
             <Box
             key={nft.tokenId}
