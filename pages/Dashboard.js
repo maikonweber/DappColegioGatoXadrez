@@ -17,7 +17,7 @@ function Dashboard() {
   useEffect(() => {
     loadNFTs()
 
-  })
+  }, [])	
   async function loadNFTs() {
     const web3Modal = new Web3Modal(
     //     {
