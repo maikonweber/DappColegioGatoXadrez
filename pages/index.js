@@ -15,7 +15,7 @@ const [nfts, setNfts] = useState([])
 const [loadingState, setLoadingState] = useState('no-loaded');
 
     async function loadNfts() {
-        const provider = new ethers.providers.JsonRpcProvider('https://polygon-mumbai.infura.io/v3/c056df343fe04736a91539be468b87ff');
+        const provider = new ethers.providers.JsonRpcProvider('http://localhost:8545');
         const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider);
         const marketContract = new ethers.Contract(nftmarketaddres, Market.abi, provider);
         // Get Signer
@@ -82,13 +82,42 @@ const [loadingState, setLoadingState] = useState('no-loaded');
         <>
         {loadingState === 'no-loaded' ? (
                     <>
-                    <Flex justifyContent="center" alignItems="center" height="30vh">
-                    <Text fontSize="lg" fontWeight="bold"> Nenhum NFT Encontrado </Text>
+                    <Flex justifyContent="center" alignItems="center" height="80vh">
+                    <Box
+                        display="flex"
+                        justifyContent="center"
+                        alignItems="center"
+                        as="span"
+                        fontSize="5xl"
+                        fontWeight="bold"
+                        color="black.500"
+                        bg='red.100'
+                        w='70vw'
+                        h='70vh'
+                        borderRadius='10px'
+                    >
+                    <Box 
+                        display="flex"
+                        justifyContent="center" 
+                        alignItems="center"
+                        as="span"
+                        flexDirection={'column'}
+                    >
+                    <Image src='/badRequest.png.png'
+                        width='100%'
+                        height='100%'
+                    ></Image>
+                    <Text 
+                    color='gray.400'
+                    fontSize="xg" fontWeight="bold"> Nenhum NFT Encontrado </Text>
+                    </Box>
+                    </Box>
                     </Flex>
                     </>
         ) : (
         <Flex
         width='100vw'
+        height='120vh'
         alignItems='center'
         justifyContent='center'
         bg='red.100'
@@ -112,8 +141,8 @@ const [loadingState, setLoadingState] = useState('no-loaded');
             >
             <Image 
             src={nft.image}
-            width='350px'
-            height='350px'
+            width='50px'
+            height='50px'
            ></Image>
             
             <Text fontSize='lg'

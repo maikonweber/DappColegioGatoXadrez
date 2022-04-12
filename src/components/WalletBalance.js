@@ -9,7 +9,9 @@ import {
     Badge,
     Avatar,
     Text
-} from '@chakra-ui/react';
+} from '@chakra-ui/react'
+import { FaWallet } from 'react-icons/fa'
+import Linker from './Link';
 
 
 
@@ -35,48 +37,31 @@ function WalletBalance() {
 
     return (
         <>
-        <Flex >
-        <Flex 
-        bg='red.700'
+    <Flex 
         width='100%'
-        height={['50px', '50px', '50px', '50px', '50px']}
-        alignItems='right'
-
+        marginBottom={5}
+        alignItems='center'
+        justifyContent='right'
+        bgGradient= {`linear-gradient(to right, #ffe7e6 0%, #FF6347 100%)`}
+        boxShadow={'0px 0px 0px 1px rgba(0, 0, 0, 0.02)'}
         >
-  <Image src='/Matic.png.png' 
-    width='30px'
-    height='30px'
-    marginLeft='10px'
-    marginTop='8px'
-  />
-  <Box ml='3'>
-    <Text fontSize='xm'
-    fontWeight='bold'
-    color='white'
-    marginTop='11px'
+        <Linker />
+    <Button 
+        margin={1}
+        variant='ghost'
+        onClick={() => getBalance()}
+        colorScheme='red.200'
+        borderRadius={'2px'}
     >
-       {balance}</Text>
-  </Box>
+     <FaWallet 
+        size='2rem'
+        color='#f2f2f'
+        
+         />
+    </Button >
 </Flex>
-                <Button 
-                bg={'orange.200'}
-                position='relative'
-                top={'5px'}
-                left={'-10px'}
-                onClick={() => getBalance()}>
-                    <Image
-                    src='/Metamask-logo.png'
-                    width={'120px'}
-                    alt='Metamask'
-
-
-                />  
-                   </Button>
-                   </Flex>
-
         </>
-    )
-
+    ) 
 };
 
 export default WalletBalance;

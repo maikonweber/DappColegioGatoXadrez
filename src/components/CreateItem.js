@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 const { create } =  require('ipfs-http-client');
 import { useRouter } from 'next/router';
-import NFT from '../artifacts/contracts/nft.sol/gatoXadrezNFT.json';
-import Market from '../artifacts/contracts/MarketXadrez.sol/gatoXadrezMarket.json';
+import NFT from '../../artifacts/contracts/nft.sol/gatoXadrezNFT.json';
+import Market from '../../artifacts/contracts/MarketXadrez.sol/gatoXadrezMarket.json';
 import Web3Modal from 'web3modal';
-import {nftaddress, nftmarketaddres } from '../config/configWallet';
+import {nftaddress, nftmarketaddres } from '../../config/configWallet';
 const client = create('https://ipfs.infura.io:5001/api/v0');
 import { Grid,Box,Button, Input, Textarea  ,SimpleGrid, Flex, Text } from '@chakra-ui/react';
 import pkg from 'multiaddr';
@@ -16,7 +16,6 @@ import Image from 'next/image';
 const { Multiaddr } = pkg;
 
 export function CreateItem() {
-   
     const [fileUrl, setFileUrl] = useState(null);
     const [formInput, updateFormInput] = useState({price: '', description: ''});
     const router =  useRouter();
@@ -96,39 +95,45 @@ export function CreateItem() {
         return  (
             <>
             <Flex
-            width='100vw'
-            height={['100vh', '100vh', '100vh', '100vh', '100vh']}
-            alignItems='center'
-            justifyContent='center'
+
+                justifyContent="top"
+                alignItems="center"
+                height="80vh"
+                flexDirection = {'column'}
+
             >
-            <Box
-            width={['100%', '100%', '100%', '100%', '100%']}
-            maxWidth={['400px', '400px', '400px', '400px', '400px']}
-            bg='white'
-            borderRadius='lg'
-            boxShadow='lg'
-            p={4}
-            >
+           
                 <Input 
+                    bg="white"
                     placeholder='Asset Name'
                     onChange={e => updateFormInput({...formInput, name: e.target.value})}
-                    mt={7}
+                    mt={2}
+                    boxShadow={'2px 1px 2px 2px rgba(0, 0, 0, 0.2)'}
                >
                 </Input>
                 <Textarea
+                    bg="white" 
                     placeholder='Description'
                     onChange={e => updateFormInput({...formInput, description: e.target.value})}
                     mt={7}
+                    boxShadow={'2px 1px 2px 2px rgba(0, 0, 0, 0.2)'}
                 >
 
                 </Textarea>
                 <Input
+                    bg="white" 
                     placeholder='Price'
                     onChange={e => updateFormInput({...formInput, price: e.target.value})}
                     mt={7}
+                    boxShadow={'2px 1px 2px 2px rgba(0, 0, 0, 0.2)'}
                 >
                 </Input>
                 <Input 
+                    border="1px solid #E2E8F0"
+                    boxShadow={'2px 1px 2px 2px rgba(0, 0, 0, 0.2)'}
+                    placeholder='Image'
+                    bg="white" 
+                    padding={1}
                     type='file'
                     name='Asset'
                     onChange={onChange}
@@ -136,13 +141,19 @@ export function CreateItem() {
                                     >
                 </Input>
                 {
-                    fileUrl && (<Image 
+                    fileUrl && (
+                    <Box mt={7}
+                    boxShadow={'2px 1px 2px 2px rgba(0, 0, 0, 0.2)'}
+                    border="1px solid #E2E8F0"
+                    >
+                    <Image 
                     src={fileUrl} 
                     width='450px'
                     height='450px'
 
                     
                     />
+                    </Box>
                     )
                 }
                 <Button 
@@ -154,7 +165,6 @@ export function CreateItem() {
                     >
                         Create NFT
                     </Button>
-            </Box>
             </Flex>
             </>
         )
