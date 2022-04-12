@@ -38,13 +38,7 @@ const Footer = (props) => {
         width={['6rem', '6rem', '10rem', '10rem', '10rem']}
         height={[20, 20, '5.5rem', '5.5rem', '5.5rem']}
         borderRadius='50%'
-        src='/LlamArte.jpg' ></Image>
-        <Text 
-        fontSize='lg'
-        margin={1}
-        fontWeight='bold'
-        color='gold.500'
-        > LlamArte </Text>
+        src='/TopSupport.png' ></Image>
         </Box>
         </Flex>
         <Flex
