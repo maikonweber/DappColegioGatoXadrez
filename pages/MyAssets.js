@@ -41,7 +41,7 @@ export default function MyAssets() {
           tokenId: i.tokenId.toNumber(),
           seller: i.seller,
           owner: i.owner,
-          image: meta.config.image,
+          image: meta.config.url,
         }
         return item
       }))

@@ -42,7 +42,7 @@ function Dashboard() {
         seller: i.seller,
         owner: i.owner,
         sold: i.sold,
-        image: meta.config.image,
+        image: meta.config.url,
       }
       return item
     }))
