@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
-import { create } from 'ipfs-http-client'
+const { create } =  require('ipfs-http-client');
 import { useRouter } from 'next/router';
 import NFT from '../artifacts/contracts/nft.sol/gatoXadrezNFT.json';
 import Market from '../artifacts/contracts/MarketXadrez.sol/gatoXadrezMarket.json';
 import Web3Modal from 'web3modal';
 import {nftaddress, nftmarketaddres } from '../config/configWallet';
-const client = create(new URL('http://localhost:5001'))
+const client = create('https://ipfs.infura.io:5001/api/v0');
 import { Grid,Box,Button, Input, Textarea  ,SimpleGrid, Flex, Text } from '@chakra-ui/react';
 import pkg from 'multiaddr';
 import Image from 'next/image';
@@ -23,7 +23,6 @@ export function CreateItem() {
 
     async function onChange(e) {
         const file = e.target.files[0]
-        
         try {
                 const added = await client.add(
                     file,
@@ -32,7 +31,7 @@ export function CreateItem() {
                     }
 
                     );
-                    const url = `https://ipfs.infura.io:5001/api/v0/${added.path}`;
+                    const url = `https://ipfs.infura.io/ipfs/${added.path}`;
                     setFileUrl(url);
                 } catch (err) {
                     console.log(err)
@@ -61,7 +60,7 @@ export function CreateItem() {
 
                     console.log(added)
 
-                    const url = `https://ipfs.infura.io:5001/api/v0/${added.path}`;
+                    const url = `https://ipfs.infura.io:5001/${added.path}`;
                     console.log(url)
                     createSale(url)
                 } catch (err) {
