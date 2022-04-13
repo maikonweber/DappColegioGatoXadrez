@@ -6,7 +6,7 @@ import Market from '../artifacts/contracts/MarketXadrez.sol/gatoXadrezMarket.jso
 import Web3Modal  from 'web3modal';
 import { nftaddress, nftmarketaddres } from '../config/configWallet';
 import axios from 'axios';
-import { Grid,Box ,SimpleGrid, Flex, Text, Button } from '@chakra-ui/react';
+import { Grid,Box ,SimpleGrid, Flex, Text, Button, GridItem } from '@chakra-ui/react';
 import Image from 'next/image'
 
 
@@ -128,7 +128,7 @@ const [loadingState, setLoadingState] = useState('no-loaded');
             gap={['1rem', '1rem', '1rem', '1rem', '1rem']}
         >
         {nfts.map((nft, i) => (
-            <Box 
+            <GridItem 
                 bg='red.200'
                 borderRadius='lg'
                 boxShadow='lg'
@@ -169,7 +169,7 @@ const [loadingState, setLoadingState] = useState('no-loaded');
             </Box>
             <Button onClick={() => buyNFT(nft)}> Comprar </Button>
             </Box>
-            </Box>
+            </GridItem>
         ))}
          </Grid>
         </Flex>

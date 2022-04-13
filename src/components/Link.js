@@ -67,10 +67,9 @@ const Linker = () => {
       </Drawer>
         <ul className={Styles.container}
             display='flex'
-            flexDirection='row'
         >
             <li>
-                <Link href='/Home'>
+                <Link href='/'>
                     <a> Marketplace </a>
                 </Link>
             </li>
