@@ -32,14 +32,14 @@ const Linker = () => {
         placement='right'
         onClose={onClose}
         finalFocusRef={btnRef}
-        w='300px'
+   
       >
         <DrawerOverlay 
         
         />
         <DrawerContent
             borderRadius='md'
-            boxShadow='0 0 8px rgba(0, 0, 0, .125)'
+            boxShadow='8px 8px 8px 8px rgba(0, 0, 0, 2.5)'
             bg='red.100'
         
         >
@@ -70,7 +70,7 @@ const Linker = () => {
             flexDirection='row'
         >
             <li>
-                <Link href='/index'>
+                <Link href='/Home'>
                     <a> Marketplace </a>
                 </Link>
             </li>

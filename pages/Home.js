@@ -80,7 +80,7 @@ const [loadingState, setLoadingState] = useState('no-loaded');
 
     return (
         <>
-        {loadingState === 'no-loaded' ? (
+        {!nfts.length ?  (
                     <>
                     <Flex justifyContent="center" alignItems="center" height="80vh">
                     <Box

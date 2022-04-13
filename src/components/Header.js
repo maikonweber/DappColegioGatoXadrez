@@ -7,13 +7,12 @@ const Header = (props) => {
     return (   
         <> 
         <Flex
-        width='100%'
+        width='100vw'
         height={['110px', '110px', '110px', '110px', '110px']}
         alignItems='center'
         justifyContent='center'
         bg='white'
         boxShadow={'0px 0px 2px 2px rgba(0, 0, 0, 0.2)'}
-
         >
         <Image src='/logo.png' ></Image>
         </Flex>  
