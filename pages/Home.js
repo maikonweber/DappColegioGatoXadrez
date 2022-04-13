@@ -133,6 +133,7 @@ const [loadingState, setLoadingState] = useState('no-loaded');
                 borderRadius='lg'
                 boxShadow='lg'
                 p={5}
+                key={i}
             >
             <Box
             key={nft.tokenId}
