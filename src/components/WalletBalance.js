@@ -24,13 +24,13 @@ function WalletBalance() {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
 
         const balance = await provider.getBalance(account)
-
+        
         setBalance(ethers.utils.formatEther(balance))
 
     };
 
     useEffect(() => {
-
+        console.log('useEffect', balance)
     }, [balance])
 
 
@@ -55,7 +55,7 @@ function WalletBalance() {
     >
      <FaWallet 
         size='2rem'
-        color='#f2f2f'
+        color='white'
         
          />
     </Button >

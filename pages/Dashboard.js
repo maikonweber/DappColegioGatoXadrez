@@ -25,8 +25,11 @@ function Dashboard() {
     //   cacheProvider: true,
     // }
     )
-    const connection = await web3Modal.connect()
-    const provider = new ethers.providers.Web3Provider(connection)
+    const connection = await web3Modal.connect({
+    })
+    const provider = new ethers.providers.Web3Provider({connection,
+      theme: "dark"
+    })
     const signer = provider.getSigner()
     const marketContract = new ethers.Contract(nftmarketaddres, Market.abi, signer)
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)

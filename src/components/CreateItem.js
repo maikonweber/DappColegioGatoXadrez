@@ -7,21 +7,20 @@ import Market from '../../artifacts/contracts/MarketXadrez.sol/gatoXadrezMarket.
 import Web3Modal from 'web3modal';
 import {nftaddress, nftmarketaddres } from '../../config/configWallet';
 const client = create('https://ipfs.infura.io:5001/api/v0');
-import { Grid,Box,Button, Input, Textarea  ,SimpleGrid, Flex, Text } from '@chakra-ui/react';
-import pkg from 'multiaddr';
+import { Grid, Box,Button, Input, Textarea  ,SimpleGrid, Flex, Text } from '@chakra-ui/react';
+
 import Image from 'next/image';
 
-
-
-const { Multiaddr } = pkg;
+const l = (arg) => (console.log(arg))
 
 export function CreateItem() {
     const [fileUrl, setFileUrl] = useState(null);
-    const [formInput, updateFormInput] = useState({price: '', description: ''});
+    const [formInput, updateFormInput] = useState({price: '', description: '', name: ''});
     const router =  useRouter();
 
     async function onChange(e) {
         const file = e.target.files[0]
+        console.log(file);
         try {
                 const added = await client.add(
                     file,
@@ -39,8 +38,8 @@ export function CreateItem() {
 
       async function createItem() {
           const { name, description, price } = formInput;
-
-          console.log(formInput)
+            const file = fileUrl;
+             console.log(formInput)
 
           if(!name || !description || !price || !fileUrl) {
               alert('error');
@@ -68,8 +67,11 @@ export function CreateItem() {
                 }
 
         async function createSale() {
-            const web3 = new Web3Modal()
+            l("createSale")
+            const web3 = new Web3Modal( )
+            l(web3)
             const connection = await web3.connect()
+            
             const provider = new ethers.providers.Web3Provider(connection)
             const signer = provider.getSigner()
             let contract = new ethers.Contract(nftaddress, NFT.abi, signer)
@@ -89,7 +91,9 @@ export function CreateItem() {
             console.log('listingPrice', listingPrice)
             transaction = await contract.createMarketItem(nftaddress, tokenId, price, {value: listingPrice})
 
-            await transaction.wait();
+            const res = await transaction.wait();
+            console.log('res', res)
+
             router.push('/');
     }
         return  (
@@ -149,15 +153,15 @@ export function CreateItem() {
                     <Image 
                     src={fileUrl} 
                     width='450px'
-                    height='450px'
-
-                    
+                    height='450p'
                     />
                     </Box>
                     )
                 }
                 <Button 
-                    onClick= {createItem}
+                    onClick= {() => {
+                        createItem()
+                    }}
                     bg='blue.500'
                     width='100%'
                     mt={7}

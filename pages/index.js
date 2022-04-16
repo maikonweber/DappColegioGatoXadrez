@@ -15,7 +15,7 @@ const [nfts, setNfts] = useState([])
 const [loadingState, setLoadingState] = useState('no-loaded');
 
     async function loadNfts() {
-        const provider = new ethers.providers.JsonRpcProvider('http://localhost:8545');
+        const provider = new ethers.providers.JsonRpcProvider('https://polygon-mumbai.infura.io/v3/c056df343fe04736a91539be468b87ff');
         const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider);
         const marketContract = new ethers.Contract(nftmarketaddres, Market.abi, provider);
         // Get Signer
