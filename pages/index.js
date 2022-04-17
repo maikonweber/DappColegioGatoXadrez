@@ -123,16 +123,17 @@ const [loadingState, setLoadingState] = useState('no-loaded');
         bg='red.100'
         >
         <Grid
-            templateColumns={['1fr', '1fr', '1fr', '1fr', '1fr']}
-            templeteRow={['1fr', '1fr', '1fr', '1fr', '1fr']}
-            gap={['1rem', '1rem', '1rem', '1rem', '1rem']}
+        templateColumns='repeat(3, 1fr)'
+        templateRows='repeat(3, 1fr)'
+        gap={4}
+
         >
         {nfts.map((nft, i) => (
             <GridItem 
                 bg='red.200'
                 borderRadius='lg'
                 boxShadow='lg'
-                p={5}
+                p={4}
                 key={i}
             >
             <Box
@@ -142,8 +143,8 @@ const [loadingState, setLoadingState] = useState('no-loaded');
             >
             <Image 
             src={nft.image}
-            width='50px'
-            height='50px'
+            width='250px'
+            height='250px'
            ></Image>
             
             <Text fontSize='lg'
