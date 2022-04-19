@@ -6,7 +6,7 @@ import Market from '../artifacts/contracts/MarketXadrez.sol/gatoXadrezMarket.jso
 import Web3Modal  from 'web3modal';
 import { nftaddress, nftmarketaddres } from '../config/configWallet';
 import axios from 'axios';
-import { Grid,Box ,SimpleGrid, Flex, Text, Button } from '@chakra-ui/react';
+import { Grid, GridItem ,Box ,SimpleGrid, Flex, Text, Button } from '@chakra-ui/react';
 import Image from 'next/image'
 
 
@@ -138,13 +138,12 @@ export default function MyAssets() {
           width='30px'
           height='30px'
           src='/Matic.png.png'>
-                </Image>
+          </Image>
           <Text fontSize='lg'
           marginLeft='1rem'
-           color='purple.700'
+          color='purple.700'
           fontWeight='bold'>{nft.price}</Text>
           </Box>
-          <Button onClick={() => buyNFT(nft)}> Comprar </Button>
           </Box>
           </GridItem>
       ))}

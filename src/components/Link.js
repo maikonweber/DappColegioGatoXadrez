@@ -14,7 +14,9 @@ import {
     DrawerContent,
     DrawerCloseButton,
     Input,
-    Flex
+    Stack,
+    Badge,
+    Flex,
   } from '@chakra-ui/react'
   import CreateItem from './CreateItem';
 
@@ -65,39 +67,35 @@ const Linker = () => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-        <ul className={Styles.container}
-            display='flex'
-        >
-            <li>
-                <Link href='/'>
-                    <a> Marketplace </a>
-                </Link>
-            </li>
-            <li>
-                <Button 
-                ref={btnRef}
-                variant='ghost'
-                colorScheme='ghost'
-                marginLeft='1.2rem'
-                onClick={onOpen}
-                    >
-                    <Text 
-                    color='white'
-                    > Criar seu NFT </Text>
-                </Button>
-            </li>
-            <li>
-                <Link href='/MyAssets'>
-                    <a> MyAsset </a>
-                </Link> 
-            </li>
-            <li>
-                <Link href='/MyAssets'>
-                    <a> Dashboard </a>
-                </Link> 
-            </li>
-        </ul>
-        
+      <Stack direction='row'>
+        <Badge 
+        marginTop={3}   
+        colorScheme='ghost'> 
+        <Link href='/' >
+          Martketplace 
+          </Link>
+          </Badge>
+         <Badge colorScheme='ghost'> 
+         <Button
+          ref={btnRef}
+          onClick={onOpen}
+          variant='ghost'
+          colorScheme='red.200'
+          borderRadius={'2px'}
+         > 
+           Create NFT
+           </Button>   
+           </Badge>
+           <Badge
+            padding={2.5} 
+            colorScheme='ghost'>
+          
+           <Link  
+           href='/MyAssets' >
+             My assets 
+             </Link>
+             </Badge>   
+          </Stack>
        </>
     )
 }
