@@ -62,9 +62,9 @@ const [loadingState, setLoadingState] = useState('no-loaded');
         const contract = new ethers.Contract(nftmarketaddres, Market.abi , signer);
         console.log(nft.price)
         const price = ethers.utils.parseUnits(nft.price.toString(), 'ether');
-
         
-        let transaction = await contract.createMarketSale(nftaddress, nft.tokenId, { value : price});
+        
+        let transaction = await contract.createMarketSale(nftaddress, nft.tokenId, { value : price });
         console.log(transaction);
         await transaction.wait();
         loadNfts();
@@ -117,12 +117,13 @@ const [loadingState, setLoadingState] = useState('no-loaded');
         ) : (
         <Flex
         width='100vw'
-        height='120vh'
+        height='100vh'
         alignItems='center'
         justifyContent='center'
         bg='red.100'
         >
         <Grid
+        margin={'auto'}
         templateColumns='repeat(3, 1fr)'
         templateRows='repeat(3, 1fr)'
         gap={4}
@@ -133,6 +134,10 @@ const [loadingState, setLoadingState] = useState('no-loaded');
                 bg='red.200'
                 borderRadius='lg'
                 boxShadow='lg'
+                maxW={'400px'}
+                maxH={'400px'}
+                minH={'250px'}
+                minW={'250px'}
                 p={4}
                 key={i}
             >

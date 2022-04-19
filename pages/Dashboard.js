@@ -56,7 +56,6 @@ function Dashboard() {
     setLoadingState('loaded')
   }
 
-  if (!nfts.length) return (<h1 className="py-10 px-20 text-3xl">No assets created</h1>)
   
   return (
   <>
