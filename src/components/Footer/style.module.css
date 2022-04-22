@@ -1,0 +1,161 @@
+
+.container{
+    background:var(--dark-color-footer);
+    width:100%;
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}    
+.wapp {
+    width: 70px;  
+}
+
+.itemListWa {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    width: 100%;
+    color: var(--white-color);
+}
+
+
+.cont {
+    background:var(--dark-color-footer);
+    width:100%;
+    max-width: 1440px;
+    display: flex;
+    height: 100%;
+}
+
+
+.left{
+    flex:1;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.left img.logo{
+    width: 100px;
+
+    top: 60px;
+}
+
+
+.list {
+    width: 100%;
+    height: auto;
+    list-style: none;
+    display: flex;
+}
+
+.itemList {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color:var(--white-color);
+    
+}  
+
+.itemListLink{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color:var(--white-color);
+}
+
+
+.itemList img{
+    width:27px;
+}
+.midlle{
+    flex:1;
+    display: flex;
+    height: 100%;
+}
+.right{
+    flex:1;
+    display: flex;
+    height: 100%;
+}
+.bottom{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media (max-width:1200px){
+    .container{
+        height: auto;
+    }
+    .cont{
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .left{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+        padding-left: 30px;
+    }
+    .left img.logo{
+        width: 100px;
+        height: 150px;
+        position: initial;
+    }
+    
+    .left ul{
+        padding: 0;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+    }
+    .list{
+        flex-direction: column;
+    }
+    .midlle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .midlle ul{
+        padding: 0;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+    }
+
+    .right{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .right ul{
+        padding: 0;
+        flex-direction: column;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: auto;
+    }
+}

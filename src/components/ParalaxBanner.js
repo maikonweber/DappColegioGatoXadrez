@@ -3,12 +3,17 @@ const image = '/pexels-markus-spiske-225250.jpg';
 import Image from 'next/image';
 import { getURL } from 'next/dist/shared/lib/utils';
 
-let url = 'https://muttercorporation.nyc3.digitaloceanspaces.com/programming.jpg';
-
 const ParalaxBanner = () => {
     return (
         <>
-          
+        <Box    
+            width="100vw"
+            height="100vh"
+            bg="gray.100"
+        >
+
+        </Box>
+      
         </>
         );
   };
