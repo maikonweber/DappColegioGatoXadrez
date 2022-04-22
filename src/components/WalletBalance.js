@@ -42,22 +42,20 @@ function WalletBalance() {
         marginBottom={5}
         alignItems='center'
         justifyContent='right'
-        bgGradient= {`linear-gradient(to right, #ffe7e6 0%, #FF6347 100%)`}
+        bgGradient= {`linear-gradient(to right, #D3D3D3 0%, #FF3131 100%)`}
         boxShadow={'0px 0px 0px 1px rgba(0, 0, 0, 0.02)'}
         >
         <Linker />
-        
     <Button 
         margin={1}
         variant='ghost'
         onClick={() => getBalance()}
-        colorScheme='red.200'
+        colorScheme='red.100'
         borderRadius={'2px'}
     >
      <FaWallet 
         size='2rem'
         color='white'
-        
          />
     </Button >
 </Flex>

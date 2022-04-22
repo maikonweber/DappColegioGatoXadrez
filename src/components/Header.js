@@ -12,9 +12,11 @@ const Header = (props) => {
         alignItems='center'
         justifyContent='center'
         bg='white'
-        boxShadow={'0px 0px 2px 2px rgba(0, 0, 0, 0.2)'}
+        boxShadow={'2px 2px 2px 2px rgba(1, 0, 0, 1.0)'}
         >
-        <Image src='/logo.png' ></Image>
+        <Image 
+        w={['210px', '210px', '210px', '210px', '210px']}
+        src='/MutterCorp2.png' ></Image>
         </Flex>  
         <WalletBalance />
         </>

@@ -42,11 +42,11 @@ const Linker = () => {
         <DrawerContent
             borderRadius='md'
             boxShadow='8px 8px 8px 8px rgba(0, 0, 0, 2.5)'
-            bg='red.100'
+            bgGradient={`linear-gradient(to right, #f0dc82 0%, #eae0c8 100%)`}
         
         >
           <DrawerCloseButton />
-          <DrawerHeader>Create your NFT</DrawerHeader>
+          <DrawerHeader> Entre em Contato </DrawerHeader>
         
           <DrawerBody
           >
@@ -54,12 +54,12 @@ const Linker = () => {
                 width='100%'
                 height={['100%', '100%', '100%', '100%', '100%']}
                 >
-            <CreateItem onClose={onClose} />
+           
             </Flex>
           </DrawerBody>
           <DrawerFooter>
             <Button variant='outline' 
-            bg='red.400'
+            bgGradient={`linear-gradient(to right, #D3D3D3 0%, #4682B4 100%)`}
             mr={3} 
             onClick={onClose}>
               Cancel
@@ -67,35 +67,6 @@ const Linker = () => {
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
-      <Stack direction='row'>
-        <Badge 
-        marginTop={3}   
-        colorScheme='ghost'> 
-        <Link href='/' >
-          Martketplace 
-          </Link>
-          </Badge>
-         <Badge colorScheme='ghost'> 
-         <Button
-          ref={btnRef}
-          onClick={onOpen}
-          variant='ghost'
-          colorScheme='red.200'
-          borderRadius={'2px'}
-         > 
-           Create NFT
-           </Button>   
-           </Badge>
-           <Badge
-            padding={2.5} 
-            colorScheme='ghost'>
-          
-           <Link  
-           href='/MyAssets' >
-             My assets 
-             </Link>
-             </Badge>   
-          </Stack>
        </>
     )
 }
