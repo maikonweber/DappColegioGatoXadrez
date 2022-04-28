@@ -5,7 +5,7 @@ const theme = extendTheme({
         global: {
             body: {
                 height: "100%",
-                bg: "#add8e6",
+                bg: "white",
                 color: "black",
             },fonts: {
         body: "system-ui, sans-serif",
