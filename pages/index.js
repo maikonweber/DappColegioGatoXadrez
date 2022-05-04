@@ -2,44 +2,11 @@
 import { Canvas } from '@react-three/fiber'
 import { Physics, usePlane, useBox } from '@react-three/cannon'
 import { useEffect, useState } from 'react'
+import Cube from '../src/components/Vube';
+import Plane from '../src/components/Plane';
 import {
     Flex
 } from '@chakra-ui/react'   
-
-function Plane(props) {
-  const [ref] = usePlane(() => ({ rotation: [-Math.PI / 2, 0, 0], ...props, onClick: props.onClick }))
-  return (
-    <mesh ref={ref} receiveShadow>
-      <planeGeometry args={[1000, 1000]} />
-      <shadowMaterial color="#171717" transparent opacity={0.4} />
-    </mesh>
-  )
-}
-
-function Cube({ state,setState, position, color, name }, ...props) {	
-    // Set Hover state to cube and pass then
-    // use SetState to change state
-  const [hover, setHover] = useState(false);
-    
-  const [ref] = useBox(() => ({ position: position, 
-  
-    mass: 1 , 
-    rotation: [0.3, -0.4, 0.2],
-    ...props }))
-
-
-  return (
-    <mesh receiveShadow castShadow
-     onClick={() => setState(!state)}
-     ref={ref}>
-      <boxGeometry
-       
-      />
-      <meshLambertMaterial 
-      color={color} />
-    </mesh>
-  )
-}
 
 
 const Index = () => {
@@ -85,9 +52,9 @@ const Index = () => {
     <directionalLight position={[10, 10, 10]} castShadow shadow-mapSize={[2048, 2048]} />
     <Physics>
       <Plane position={[0, -2.0, 0]}  />
-      <Cube position={[0.1, 5, 0]} name='Cubo1' state={cube1} setState={setCube1} color={'red'}  />
-      <Cube position={[0.2, 10, -2.1]} name='Cubo1'state={cube2}  setState={setCube2} color={'yellow'}/>
-      <Cube position={[0, 10, -1]} name='Cubo1' state={cube3}  setState={setCube3}  color={'blue'}/>
+      <Cube position={[0.1, 5, 0]}  state={cube1} setState={setCube1} color={'red'}  />
+      <Cube position={[0.2, 10, -2.1]} state={cube2}  setState={setCube2} color={'yellow'}/>
+      <Cube position={[0, 10, -1]}  state={cube3}  setState={setCube3}  color={'blue'}/>
     </Physics>
   </Canvas>
   </Flex>,

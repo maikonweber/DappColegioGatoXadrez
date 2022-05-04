@@ -21,6 +21,7 @@
     "framer-motion": "^6.2.9",
     "ipfs-http-client": "50.1.2",
     "next": "12.1.4",
+    "nookies": "^2.5.2",
     "react": "18.0.0",
     "react-dom": "18.0.0",
     "react-focus-lock": "^2.8.1",

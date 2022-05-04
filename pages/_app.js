@@ -9,14 +9,12 @@ import Footer from '../src/components/Footer';
 function MyApp({ Component, pageProps }) {
   return (<>
 
- <ChakraProvider theme={theme} >
-  
+ <ChakraProvider>
   <Headers />
  <Component {...pageProps} />
   <Footer />
   </ChakraProvider >
  
-
   </>
   );
 }
