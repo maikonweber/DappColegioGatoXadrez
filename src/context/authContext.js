@@ -1,18 +1,23 @@
 import { createContext, useEffect, useState, useContext} from 'react';
 import {parseCookies, setCookie} from 'nookies';
-import Router from 'next/router';
 
 export const AuthContext = createContext({});
 
 export function AuthProvider({ children }) {
-    const auth = 'auth'
+    const [cart, setCart] = useState([]);
+    const auth = 'authetication'
+
+
     useEffect(() => {
         const { 'nextauth.token': token } = parseCookies()
-        
+        getCart();
+
     }, []);
 
     return (
-        <AuthContext.Provider value={auth}>
+        <AuthContext.Provider value={{
+            
+        }}>
             {children}
         </AuthContext.Provider>
     );
