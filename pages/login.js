@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import Style from "../styles/login.module.css";
 import { RiEyeCloseLine,RiEyeLine } from "react-icons/ri"
-import { setCookie } from 'nookies';
+import {setCookie} from 'nookies';
 import { useRouter } from 'next/router'
 import { loginIn } from '../src/services/services';
 import Head from 'next/head';
@@ -71,8 +71,8 @@ const Login = () => {
                         }
                     </div>
                     </label>
-                    <button className={Style.button} type="send" >
-                        Entrar
+                    <button   className={Style.button} type="send" >
+                        Entar
                     </button >
                 </form>
             </div>
