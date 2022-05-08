@@ -17,7 +17,7 @@ import {
 
 
 function Dashboard(props) {
-    console.log(props)
+    console.log(props.datax.true.count)
   
   return (
   <>
@@ -39,7 +39,7 @@ function Dashboard(props) {
    m='5' >
   <Stat>
   <StatLabel>Numero de Entradas</StatLabel>
-  <StatNumber>345,670</StatNumber>
+  <StatNumber>{props.datax.true[0].count}</StatNumber>
   <StatHelpText>
   <StatArrow type='increase' />
       23.36%
@@ -47,7 +47,7 @@ function Dashboard(props) {
   </Stat>
   <Stat>
   <StatLabel> Red </StatLabel>
-  <StatNumber>45</StatNumber>
+  <StatNumber>{props.datax.false[0].count}</StatNumber>
   <StatHelpText>
   <StatArrow type='decrease' />
       9.05%
@@ -55,7 +55,7 @@ function Dashboard(props) {
   </Stat>
   <Stat>
   <StatLabel> Green </StatLabel>
-  <StatNumber>45</StatNumber>
+  <StatNumber>{props.datax.false[0].count}</StatNumber>
   <StatHelpText>
   <StatArrow type='decrease' />
       9.05%
