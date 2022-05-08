@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { parseCookies, setCookie } from 'nookies';
 import { Grid,Box, Flex, Text, Button, GridItem } from '@chakra-ui/react';
 import {
-  getApiClient,
+  getAllResult,
 } from '../src/services/services';
 import Image from 'next/image'
 import {
@@ -91,11 +91,11 @@ function Dashboard(props) {
 export async function getServerSideProps(ctx) {
   // get token of browser
   const { 'nextauth.token': token } = parseCookies(ctx)
-  const datax = await getApiClient(token)
+  const datax = await getAllResult(token)
   // get token of server
   return {
     props: {
-      token
+      datax
     }
   }
 }
