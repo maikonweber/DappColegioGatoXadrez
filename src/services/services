@@ -17,7 +17,7 @@ async function loginIn(email,password) {
 }
 
 async function getAllResult(token) {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/telegramresult`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v2/telegramresult`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

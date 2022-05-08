@@ -16,8 +16,8 @@ import {
 } from '@chakra-ui/react'
 
 
-function Dashboard(props) {
-    console.log(props)
+function Dashboard({ datax }) {
+
   
   return (
   <>
@@ -38,47 +38,36 @@ function Dashboard(props) {
   <StatGroup 
    m='5' >
   <Stat>
-  <StatLabel>Numero de Entradas</StatLabel>
-  <StatNumber>345,670</StatNumber>
-  <StatHelpText>
-  <StatArrow type='increase' />
-      23.36%
-  </StatHelpText>
+  <StatLabel>Numero de Entradas em Colunas e Bloco</StatLabel>
+  <StatNumber>{datax.total}</StatNumber>
+
   </Stat>
   <Stat>
-  <StatLabel> Red </StatLabel>
-  <StatNumber>45</StatNumber>
-  <StatHelpText>
-  <StatArrow type='decrease' />
-      9.05%
-  </StatHelpText>
+  <StatLabel> Red  </StatLabel>
+  <StatNumber>{datax.false}</StatNumber>
+  
   </Stat>
   <Stat>
   <StatLabel> Green </StatLabel>
-  <StatNumber>45</StatNumber>
-  <StatHelpText>
-  <StatArrow type='decrease' />
-      9.05%
-  </StatHelpText>
+  <StatNumber>{datax.true}</StatNumber>
+ 
   </Stat>
   </StatGroup>
   <StatGroup 
   m='4'>
   <Stat>
   <StatLabel>  Green 1 Martingale </StatLabel>
-  <StatNumber>345,670</StatNumber>
-  <StatHelpText>
-  <StatArrow type='increase' />
-      23.36%
-  </StatHelpText>
+  <StatNumber>{datax.firstgale}</StatNumber>
+  
   </Stat>
   <Stat>
   <StatLabel>  Green 2 Martingale </StatLabel>
-  <StatNumber>345,670</StatNumber>
-  <StatHelpText>
-  <StatArrow type='increase' />
-      23.36%
-  </StatHelpText>
+  <StatNumber>{datax.secondgale}</StatNumber>
+  
+  </Stat>
+  <Stat>
+  <StatLabel>  Green 2 Martingale </StatLabel>
+  <StatNumber>{datax.zero}</StatNumber>
   </Stat>
   </StatGroup>
   </GridItem>

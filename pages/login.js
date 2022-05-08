@@ -72,7 +72,7 @@ const Login = () => {
                     </div>
                     </label>
                     <button   className={Style.button} type="send" >
-                        Entar
+                        Entrar
                     </button >
                 </form>
             </div>
