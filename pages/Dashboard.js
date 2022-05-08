@@ -1,6 +1,10 @@
 
 import { useState, useEffect } from 'react';
+import { parseCookies, setCookie } from 'nookies';
 import { Grid,Box, Flex, Text, Button, GridItem } from '@chakra-ui/react';
+import {
+  getApiClient,
+} from '../src/services/services';
 import Image from 'next/image'
 import {
   Stat,
@@ -12,8 +16,8 @@ import {
 } from '@chakra-ui/react'
 
 
-function Dashboard() {
-  
+function Dashboard(props) {
+    console.log(props)
   
   return (
   <>
@@ -82,5 +86,19 @@ function Dashboard() {
         </>
   )
 }
+
+// get server side props
+export async function getServerSideProps(ctx) {
+  // get token of browser
+  const { 'nextauth.token': token } = parseCookies(ctx)
+  const datax = await getApiClient(token)
+  // get token of server
+  return {
+    props: {
+      token
+    }
+  }
+}
+
 
 export default Dashboard;
