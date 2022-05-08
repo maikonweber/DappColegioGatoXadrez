@@ -1,12 +1,10 @@
-import { ethers } from 'ethers';
-import WalletBalance  from '../src/components/WalletBalance';
+
 import { useState, useEffect } from 'react';
-import NFT from '../artifacts/contracts/nft.sol/gatoXadrezNFT.json';
-import Market from '../artifacts/contracts/MarketXadrez.sol/gatoXadrezMarket.json';
-import Web3Modal  from 'web3modal';
-import { nftaddress, nftmarketaddres } from '../config/configWallet';
-import axios from 'axios';
+import { parseCookies, setCookie } from 'nookies';
 import { Grid,Box, Flex, Text, Button, GridItem } from '@chakra-ui/react';
+import {
+  getAllResult,
+} from '../src/services/services';
 import Image from 'next/image'
 import {
   Stat,
@@ -56,5 +54,19 @@ function Dashboard() {
         </>
   )
 }
+
+// get server side props
+export async function getServerSideProps(ctx) {
+  // get token of browser
+  const { 'nextauth.token': token } = parseCookies(ctx)
+  const datax = await getAllResult(token)
+  // get token of server
+  return {
+    props: {
+      datax
+    }
+  }
+}
+
 
 export default Dashboard;

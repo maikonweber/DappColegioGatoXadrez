@@ -5,16 +5,17 @@ import Headers from '../src/components/Header';
 import Image from 'next/image';
 import Linker from '../src/components/Link';
 import Footer from '../src/components/Footer';
+import { AuthProvider } from '../src/context/authContext';
 
 function MyApp({ Component, pageProps }) {
   return (<>
-
+ <AuthProvider> 
  <ChakraProvider>
   <Headers />
  <Component {...pageProps} />
   <Footer />
   </ChakraProvider >
- 
+  </AuthProvider>
   </>
   );
 }

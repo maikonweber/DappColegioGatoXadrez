@@ -1,8 +1,9 @@
 import React,{useState} from "react";
 import Style from "../styles/login.module.css";
 import { RiEyeCloseLine,RiEyeLine } from "react-icons/ri"
-import {setCookie} from 'nookies';
+import { setCookie } from 'nookies';
 import { useRouter } from 'next/router'
+import { loginIn } from '../src/services/services';
 import Head from 'next/head';
 // Sing in form with styled components
 
@@ -19,12 +20,12 @@ const Login = () => {
     
            const token = await loginIn(email,password)          
            if (token) {
-          
-               setCookie(undefined, 'nextauth.token', token[0].token, {
+                console.log(token)
+               setCookie(undefined, 'nextauth.token', token, {
                    maxAge: 60 * 60 * 60 * 60,
                });
       
-               router.push('/dashboard');
+               router.push('/Dashboard');
       
             } else {
       
@@ -70,8 +71,8 @@ const Login = () => {
                         }
                     </div>
                     </label>
-                    <button   className={Style.button} type="send" >
-                        Entar
+                    <button className={Style.button} type="send" >
+                        Entrar
                     </button >
                 </form>
             </div>
