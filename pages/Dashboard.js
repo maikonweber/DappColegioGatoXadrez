@@ -4,6 +4,7 @@ import { parseCookies, setCookie } from 'nookies';
 import { Grid,Box, Flex, Text, Button, GridItem } from '@chakra-ui/react';
 import {
   getAllResult,
+  getTable
 } from '../src/services/services';
 import Image from 'next/image'
 import {
@@ -15,15 +16,27 @@ import {
   StatGroup,
 } from '@chakra-ui/react'
 
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tfoot,
+  Tr,
+  Th,
+  Td,
+  TableCaption,
+  TableContainer,
+} from '@chakra-ui/react'
 
-function Dashboard({ datax }) {
+
+function Dashboard({ datax, datax2 }) {
 
   
   return (
   <>
   <Grid
-        templateColumns={['1fr', '1fr', '1fr', '1fr']}
-        templateRows={['1fr', '1fr', '1fr', '1fr']}
+        templateColumns="repeat(auto-fit, minmax(300px, 1fr))"
+        templateRows='repeat(auto-fit, minmax(300px, 1fr))'
         gap={1}
         width='90vw'
         height='100vh'
@@ -66,11 +79,42 @@ function Dashboard({ datax }) {
   
   </Stat>
   <Stat>
-  <StatLabel>  Green 2 Martingale </StatLabel>
+  <StatLabel>  Resultado Zero </StatLabel>
   <StatNumber>{datax.zero}</StatNumber>
   </Stat>
   </StatGroup>
   </GridItem>
+  <GridItem
+  gridColumn={[1, 1, 1, 1, 1]}
+  gridRow={[2, 2, 2, 2, 2]}
+  >
+    <TableContainer>
+  <Table variant='striped' overflowX='auto' >
+    <Thead>
+      <Tr>
+        <Th>  Sala </Th>
+        <Th>Entrada </Th>
+        <Th> Resultado </Th>
+        <Th> Martingale </Th>
+        <Th> 2 Martigale </Th>
+        <Th> Zero </Th>
+      </Tr>
+    </Thead>
+    <Tbody>
+      {datax2.map((item, index) => (
+        <Tr key={index}>
+          <Td>{item.room}</Td>
+          <Td>{item.aposta}</Td>
+          <td>{`${item.result}`}</td>
+          <Td>{`${item.firstgale}`}</Td>
+          <Td>{`${item.secondgale}`}</Td>
+          <Td>{`${item.zero}`}</Td>
+        </Tr>
+      ))}
+    </Tbody>
+  </Table>
+</TableContainer>
+    </GridItem>
      </Grid>
         </>
   )
@@ -81,10 +125,12 @@ export async function getServerSideProps(ctx) {
   // get token of browser
   const { 'nextauth.token': token } = parseCookies(ctx)
   const datax = await getAllResult(token)
+  const datax2 = await getTable(token)
   // get token of server
   return {
     props: {
-      datax
+      datax,
+      datax2
     }
   }
 }
