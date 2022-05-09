@@ -89,7 +89,7 @@ function Dashboard({ datax, datax2 }) {
   gridRow={[2, 2, 2, 2, 2]}
   >
     <TableContainer>
-  <Table variant='striped' overflowX='auto' >
+  <Table variant='striped' overflowX='auto' overflowY='auto'   >
     <Thead>
       <Tr>
         <Th>  Sala </Th>
