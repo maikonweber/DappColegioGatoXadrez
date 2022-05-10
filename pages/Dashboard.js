@@ -31,7 +31,7 @@ import {
 
 function Dashboard({ datax, datax2 }) {
 
-  
+    console.log(datax)
   return (
   <>
   <Grid
