@@ -76,7 +76,10 @@ function Dashboard({ datax, datax2 }) {
   <Stat>
   <StatLabel>  Green 2 Martingale </StatLabel>
   <StatNumber>{datax.secondgale}</StatNumber>
-  
+  </Stat>
+  <Stat>
+  <StatLabel>  Loss 2 Martingale </StatLabel>
+  <StatNumber>{datax.secondGaleLoss}</StatNumber>
   </Stat>
   <Stat>
   <StatLabel>  Resultado Zero </StatLabel>
