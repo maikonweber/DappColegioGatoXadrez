@@ -25,7 +25,6 @@ async function getAllResult(token) {
         }
     })
     const data = await response.json()
-    console.log(data)
     return data
 }
 
