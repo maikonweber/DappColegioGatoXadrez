@@ -59,10 +59,31 @@ async function getTable(token) {
     return data
 }
 
+async function setblazeBotting(token, username, password, horario, autoretirar, valor) {
+    console.log(token, username, password, horario, autoretirar, valor)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/setblaze`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'token': `${token}`
+        },
+        body: {   
+           "username" : `${username}`,
+           "password" : `${password}`,
+           "horario" :  `${horario}`,
+           "autoretirar" : `${autoretirar}`,
+           "valor" : `${valor}`	
+        }
+    })
 
+    const data = await response.json()
+    console.log(data)
+    return data
+}
 
 module.exports = {
     loginIn,
     getAllResult,
-    getTable
+    getTable,
+    setblazeBotting,
 }
