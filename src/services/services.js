@@ -67,13 +67,13 @@ async function setblazeBotting(token, username, password, horario, autoretirar, 
             'Content-Type': 'application/json',
             'token': `${token}`
         },
-        body: {   
-           "username" : `${username}`,
-           "password" : `${password}`,
-           "horario" :  `${horario}`,
-           "autoretirar" : `${autoretirar}`,
-           "valor" : `${valor}`	
-        }
+        body: JSON.stringify({
+            username,
+            password,
+            horario,
+            autoretirar,
+            valor
+        })
     })
 
     const data = await response.json()
