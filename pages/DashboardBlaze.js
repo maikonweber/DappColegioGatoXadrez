@@ -173,17 +173,6 @@ function DashboardBlaze({ token }) {
 }
 
 // get server side props
-export async function getServerSideProps(ctx) {
-  // get token of browser
-  const { 'nextauth.token': token } = parseCookies(ctx)
-
-  
-  return {
-    props: {
-      token
-    }
-  }
-}
 
 
 export default DashboardBlaze;

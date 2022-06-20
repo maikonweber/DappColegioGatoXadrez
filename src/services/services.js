@@ -16,6 +16,24 @@ async function loginIn(email,password) {
     return data
 }
 
+async function setFilterbyUser(string1,strign2,string3, roletas, strategias )  {
+    console.log(string1,strign2,string3, roletas, strategias)
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/setFilterbyUser`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            string1,
+            strign2,
+            string3,
+            roletas,
+            strategias
+        })
+    })
+    
+}
+
 
 async function loginIn2(email,password) {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/loginadm`, {
