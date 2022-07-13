@@ -11,6 +11,11 @@ import { Flex, Spacer } from '@chakra-ui/react'
 
 
 const exports = () => {
+     const [value, setValue] = React.useState("")
+     const handleChange = (Event) => {
+          setValue(event.target.value)
+     }
+
     const array = [
      'Turkish_Roulette',
      'UK_Roulette',
@@ -57,15 +62,20 @@ const exports = () => {
           link.parentNode.removeChild(link);
      }
 
-     function getButtonFetch () {
-          document.querySelectorAll()
+     const getButtonFetch = async  () => {
+          fetchCsv(value)
      }
+
+     
 
 
      
      return (
           <Flex>
-               <Select className='select' placeholder='Selecione  Roleta' >
+               <Select 
+               value={value}
+               onChange={handleChange}
+               className='select' placeholder='Selecione  Roleta' >
                <option value='option1'> `{array[0]}` </option>
                <option value='option2'> `{array[1]}`</option>
                <option value='option3'>`{array[2]}`</option>
