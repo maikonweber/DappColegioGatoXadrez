@@ -1,6 +1,7 @@
-
+import { useState } from 'react';
 import { Canvas } from '@react-three/fiber'
 import { Physics, usePlane, useBox } from '@react-three/cannon'
+
 
 import Image from 'next/image'
 import Cube from '../src/components/Vube';
@@ -11,7 +12,7 @@ import {
 } from '@chakra-ui/react'   
 
 
-const Index = () => {
+export default function Index = () => {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
@@ -77,6 +78,3 @@ const Index = () => {
     )
 
 }
-
-
-module.exports = Index;
