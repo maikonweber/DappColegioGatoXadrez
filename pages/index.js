@@ -1,7 +1,7 @@
 
 import { Canvas } from '@react-three/fiber'
 import { Physics, usePlane, useBox } from '@react-three/cannon'
-import { useEffect, useState } from 'react'
+
 import Image from 'next/image'
 import Cube from '../src/components/Vube';
 import Plane from '../src/components/Plane';
