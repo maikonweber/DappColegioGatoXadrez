@@ -11,7 +11,6 @@ import {
     Text
 } from '@chakra-ui/react'
 import { FaWallet } from 'react-icons/fa'
-import Linker from './Link';
 
 
 
@@ -36,7 +35,7 @@ function WalletBalance() {
 
 
     return (
-        <>
+    <>
     <Flex 
         width='100%'
         marginBottom={5}
@@ -45,7 +44,6 @@ function WalletBalance() {
         bgGradient= {`linear-gradient(to right, #D3D3D3 0%, #FF3131 100%)`}
         boxShadow={'0px 0px 0px 1px rgba(0, 0, 0, 0.02)'}
         >
-        <Linker />
     <Button 
         margin={1}
         variant='ghost'
