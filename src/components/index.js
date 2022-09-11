@@ -1,8 +1,6 @@
 import { ethers } from 'ethers';
 import WalletBalance  from './WalletBalance';
 import { useState, useEffect } from 'react';
-import NFT from '../../artifacts/contracts/nft.sol/gatoXadrezNFT.json';
-import Market from '../../artifacts/contracts/MarketXadrez.sol/gatoXadrezMarket.json';
 import Web3Modal  from 'web3modal';
 import { nftaddress, nftmarketaddres } from '../../config/configWallet';
 import axios from 'axios';
