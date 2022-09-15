@@ -17,21 +17,16 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (email != '' && password != '')  {
-    
            const token = await loginIn(email,password)          
            if (token) {
                 console.log(token)
                setCookie(undefined, 'nextauth.token', token, {
                    maxAge: 60 * 60 * 60 * 60,
                });
-      
                router.push('/Dashboard');
-      
             } else {
-      
-                alert('Email ou senha incorretos')
+            alert('Email ou senha incorretos')
             }
-        
             } else {
             alert('Email ou senha Invalidos')     
            }  
@@ -48,11 +43,11 @@ const Login = () => {
 
     return (
         
-            <div className={Style.container}>
-                  <Head>
+        <div className={Style.container}>
+        <Head>
         <meta httpEquiv="Content-Security-Policy" content="upgrade-insecure-requests" />
-        <title>Nagano Consultoria</title>
-        <meta name="description" content="" />
+        <title>Mutter Corporation </title>
+        <meta name="description" content="Web Tools and Dashboard for um Bunisses" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
                 <form  className={Style.formulario} onSubmit={(e)=>handleSubmit(e)} >
@@ -71,7 +66,7 @@ const Login = () => {
                         }
                     </div>
                     </label>
-                    <button   className={Style.button} type="send" >
+                    <button className={Style.button} type="send" >
                         Entrar
                     </button >
                 </form>
