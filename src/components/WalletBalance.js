@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ethers } from 'ethers'
 import { useEffect } from 'react';
+import Styles from './wallet.module.css'
 import {
     Button,
     Box,
@@ -16,7 +17,6 @@ import { FaWallet } from 'react-icons/fa'
 
 function WalletBalance() {
     const [balance, setBalance] = useState('')
-
  
     const getBalance = async () => {
         const [account] = await window.ethereum.request({ method: 'eth_requestAccounts' })
@@ -28,35 +28,24 @@ function WalletBalance() {
 
     };
 
-    useEffect(() => {
-        console.log('useEffect', balance)
-    }, [balance])
-
-
-
     return (
     <>
-    <Flex 
+        <Flex 
         width='100%'
         marginBottom={5}
         alignItems='center'
-        justifyContent='right'
-        bgGradient= {`linear-gradient(to right, #D3D3D3 0%, #FF3131 100%)`}
+        justifyContent='left'
+        bgGradient= {`linear-gradient(to left, #D3D3D3 0%, #FF3131 100%)`}
+        height={`50px`}
         boxShadow={'0px 0px 0px 1px rgba(0, 0, 0, 0.02)'}
         >
-    <Button 
-        margin={1}
-        variant='ghost'
-        onClick={() => getBalance()}
-        colorScheme='red.100'
-        borderRadius={'2px'}
-    >
-     <FaWallet 
-        size='2rem'
-        color='white'
-         />
-    </Button >
-</Flex>
+        <div className={Styles.list}> 
+            <a> Home </a>
+            <a> Blog  </a>
+            <a> Produtos </a>
+            <a> Contatos </a>
+            </div>
+        </Flex>
         </>
     ) 
 };
